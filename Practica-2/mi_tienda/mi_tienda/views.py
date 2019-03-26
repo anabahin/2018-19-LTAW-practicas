@@ -1,13 +1,11 @@
 from django.http import HttpResponse
+from django.template.loader import get_template
 from django.template import Template, Context
+from django.shortcuts import render
 
 def index(request):
-    fp = open('‎⁨/Users/nurnabahin/Desktop/2018-19-LTAW-practicas/Practica-2/mi_tienda/mi_tienda/main.html')
-    t = Template(fp.read())
-    fp.close()
-    c = Context({'user': 'Obijuan'})
-    html = t.render(c)
-    return HttpResponse(html)
+    return render(request, 'main.html', {'user':'Obijuan'})
+
 
 #-- Resto del fichero....
 
