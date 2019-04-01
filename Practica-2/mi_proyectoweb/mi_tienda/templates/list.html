@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MI TIENDA</title>
+    <link rel="stylesheet" href="{% static 'micss.css'%}">
+     <script src="{% static 'mijs.js' %}"></script>
+  </head>
+  <body onload="main();">
+    <ul>
+      {% for movie in movies %}
+          <i>{{movie.name}}</i>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
