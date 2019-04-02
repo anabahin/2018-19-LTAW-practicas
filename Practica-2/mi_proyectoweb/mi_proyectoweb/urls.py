@@ -21,5 +21,4 @@ from mi_tienda import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('mi_tienda.urls') ),
-    url(r'^list', views.list_movies),
 ]

@@ -3,5 +3,6 @@ from . import views
 from mi_tienda import views
 
 urlpatterns = [
-    url(r'^list', views.list_movies),
+    url(r'^$', views.home_view),
+    #url(r'^camiseta, views.camiseta)
 ]
