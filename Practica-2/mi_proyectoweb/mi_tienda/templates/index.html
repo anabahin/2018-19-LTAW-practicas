@@ -7,17 +7,35 @@
     <link rel="stylesheet" href="{% static 'style.css'%}">
     <title></title>
   </head>
-  <body>
+  <body background="{% static 'fondo.jpg'%}">
     <div class="header">
-      <p>Tienda de Futbol</p>
+      <p>Tienda de Ropa</p>
     </div>
     <div class="menu">
-      <a href="index.html">Principal</a>
-      <a href="productos.html">Productos</a>
-      <a href="?p=ofertas">Ofertas</a>
-      <a href="?p=carrito">Carrito</a>
+      <a>Principal</a>
+      <a >Productos</a>
+      <a>Ofertas</a>
+      <a>Carrito</a>
     </div>
 
+    <div class="cuerpo">
+      <table border="2">
+        <tr>
+          <td>
+            <button class ="button" type="button" onclick="window.location.href='/camisetas'">  <img src="{% static 'camisetabetis.jpeg'%}" alt="betis" width="400" height="400"></img></button>
+            <p>CAMISETAS DE EQUIPOS APARTIR 40 EUROS</p>
+          </td>
+          <td>
+            <button class ="button" type="button" onclick="window.location.href='/chandal'"> <img src="{% static 'chandalnike.jpg'%}" alt="chandal1" width="400" height="400"></img></button>
+            <p>CHANDAL ENTERO APARTIR DE 50 EUROS</p>
+          </td>
+          <td>
+            <button class ="button" type="button" onclick="window.location.href='/Abrigos'"> <img src="{% static 'northface.jpg'%}" alt="Abrigo1" width="400" height="400"></img> </button>
+            <p>ABRIGO APARTIR DE 150 EUROS</p>
+          </td>
+        </tr>
+        </table>
+    </div>
 
     <div class="footer">
       copyright AnySlehider &copy; <2018>

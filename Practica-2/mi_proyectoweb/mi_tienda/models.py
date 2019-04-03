@@ -5,9 +5,9 @@ from django.db import models
 
 
 # Create your models here.
-class Camiseta (models.Model):
+class Camiseta_Futbol (models.Model):
     name = models.CharField('Nombre de la camiseta', max_length=50)
-    #image = models.ImageField(upload_to = "static")
+    image = models.CharField(max_length = 500)
     marca = models.CharField('Marca de la camiseta', max_length = 50)
     precio = models.FloatField()
     stock = models.IntegerField()
@@ -17,7 +17,7 @@ class Camiseta (models.Model):
 
 class Chaqueta_Chandal (models.Model):
     name = models.CharField('Nombre de la chaqueta', max_length=50)
-    #image = models.ImageField(upload_to = "static")
+    image = models.CharField(max_length = 500)
     marca = models.CharField('Marca de la chaqueta', max_length = 50)
     precio = models.FloatField()
     stock = models.IntegerField()
@@ -28,7 +28,7 @@ class Chaqueta_Chandal (models.Model):
 
 class Abrigo (models.Model):
     name = models.CharField('Nombre del abrigo', max_length=50)
-    #image = models.ImageField(upload_to = "static")
+    image = models.CharField(max_length = 500)
     marca = models.CharField('Marca del abrigo', max_length = 50)
     precio = models.FloatField()
     stock = models.IntegerField()
