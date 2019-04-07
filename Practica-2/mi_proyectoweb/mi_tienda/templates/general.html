@@ -19,15 +19,15 @@
     </div>
 
     <div class="cuerpo">
-      {% for objeto in objetos %}
        <div class='products'>
+         {% for objeto in objetos %}
            <tr>
                <td><img src='{{ objeto.image }}' alt="NOPE" id="logo"></td>
                <td>{{ objeto.name }}</td>
                <td>{{ objeto.price }}</td>
            </tr>
+        {% endfor %}
        </div>
-       {% endfor %}
     </div>
 
     <div class="footer">
