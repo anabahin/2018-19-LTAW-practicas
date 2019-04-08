@@ -30,6 +30,11 @@
 .cuerpo{
   background: #eaeaeaea;
   padding: 30px;
+  text-align: center;
+}
+.products{
+  text-align: center;
+  image-orientation: center;
 }
 
 .footer{

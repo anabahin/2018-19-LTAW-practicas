@@ -16,7 +16,7 @@ class Camiseta_Futbol (models.Model):
         return self.name
 
 class Chaqueta_Chandal (models.Model):
-    name = models.CharField('Nombre de la chaqueta', max_length=50)
+    name = models.CharField('Nombre de la chaqueta', max_length=150)
     image = models.ImageField(upload_to = "static", default = 0)
     marca = models.CharField('Marca de la chaqueta', max_length = 50)
     precio = models.FloatField()

@@ -19,15 +19,19 @@
     </div>
 
     <div class="cuerpo">
-       <div class='products'>
+      <center>
+        <table>
          {% for objeto in objetos %}
-           <tr>
-               <td><img src='{{ objeto.image }}' alt="NOPE" id="logo"></td>
-               <td>{{ objeto.name }}</td>
-               <td>{{ objeto.price }}</td>
-           </tr>
-        {% endfor %}
-       </div>
+               <td><img src='{{ objeto.image }}' alt="NOPE" id="logo" width="300" height="300"></td>
+               <tr>
+                 <td>{{ objeto.name }}</td>
+                 <tr>
+                   <td> <center> {{ objeto.precio }} EUROS </center></td>
+                 </tr>
+               </tr>
+         {% endfor %}
+        </table>
+      </center>
     </div>
 
     <div class="footer">

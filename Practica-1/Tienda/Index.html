@@ -1,10 +1,12 @@
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="tienda.css">
+
+
+    </script>
     <title></title>
   </head>
   <body>
@@ -19,6 +21,48 @@
     </div>
 
     <div class="cuerpo">
+      <video  id="mivideo" width="640" height="320" >
+        <source src="video.mp4" type="video/mp4">
+      </video>
+    <div id="controles">
+      <button id="IniciarPausar()" type="button" name="button"> INICIAR/PAUSAR</button>
+      <input type="range" id="Velocidad" value="0">
+      <button id="BtnMute">Mute</button>
+      <input type="range" id="Volumen" value="1" min="0" max="1" step="0.1">
+      <button id="BtnPantallaGrande"> Maximizar</button>
+
+    </div>
+
+      <script>
+        mivideo = document.getElementById('mivideo');
+        //mivideo.autoplay = true;
+        //mivideo.loop = true;
+        //mivideo.load();
+        function IniciarPausar() {
+          if (mivideo.paused) {
+            mivideo.play();
+          }else {
+            mivideo.pause();
+          }
+        }
+
+        function Grande() {
+          mivideo.width = 800;
+          mivideo.height = 450;
+        }
+
+        function Mediano() {
+          mivideo.width = 640;
+          mivideo.height = 320;
+        }
+
+        function Pequenio() {
+          mivideo.width = 320;
+          mivideo.height = 180;
+        }
+      </script>
+
+
       <p>CAMISETAS DE EQUIPOS APARTIR 40 EUROS</p>
       <a href="totti.html"> <img src="roma.jpg" height="250"></img> </a>
       <a href="madrid.html"> <img src="realmadrid.jpg" height="250"></img> </a>

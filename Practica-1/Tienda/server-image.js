@@ -53,7 +53,6 @@ http.createServer((req, res) => {
     //-- Es un css
     if (tipo == "css")
       mime = "text/css"
-
     //-- Generar el mensaje de respuesta
     res.writeHead(200, {'Content-Type': mime});
     res.write(data);

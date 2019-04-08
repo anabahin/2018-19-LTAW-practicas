@@ -17,12 +17,12 @@ def home_view(request):
 
 def camiseta(request):
     todas_camisetas = Camiseta_Futbol.objects.all()
-    return render(request, "general.html", {'objetos': camiseta})
+    return render(request, "general.html", {'objetos': todas_camisetas})
 
 def chandal(request):
-    todos_chandal = Camiseta_Futbol.objects.all()
-    return render(request, "general.html", {'objetos': chandal})
+    todos_chandal = Chaqueta_Chandal.objects.all()
+    return render(request, "general.html", {'objetos': todos_chandal})
 
 def Abrigos(request):
-    todos_abrigos = Camiseta_Futbol.objects.all()
-    return render(request, "general.html", {'objetos': Abrigos})
+    todos_abrigos = Abrigo.objects.all()
+    return render(request, "general.html", {'objetos': todos_abrigos})
