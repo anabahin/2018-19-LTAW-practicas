@@ -39,23 +39,15 @@ http.createServer((req, res) => {
       });
       break;
 
-    //-- Acceso al recurso JSON
-    case "/myquery":
+      //-- Acceso al recurso JSON
+         case "/myquery":
 
-      //-- Contenido en formato JSON
-      //-- Es lo que se va a devolver en la petición
-      content = `
-      {
-        "productos": ["FPGA", "RISC-V", "74ls00"]
-      }
-      `
-      //-- Generar el mensaje de respuesta
-      //-- IMPORTANTE! Hay que indicar que se trata de un objeto JSON
-      //-- en la cabecera Content-Type
-      res.setHeader('Content-Type', 'application/json')
-      res.write(content);
-      res.end();
-      return
+           //-- Leer los parámetros recibidos en la peticion
+           var params = q.query;
+
+           //-- No hacemos nada con ellos, simplemente los mostramos en
+           //-- la consola
+           console.log("Parametros: " +params.param1 + ' y ' + params.param2);
       break
 
     //-- Se intenta acceder a un recurso que no existe
