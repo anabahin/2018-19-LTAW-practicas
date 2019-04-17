@@ -14,23 +14,24 @@ app.get('/chat-client.js', function(req, res){
   console.log("Fichero js solicituado")
 });
 
+
 //-- Lanzar el servidor
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
 
-
 //-- Evento: Nueva conexion recibida
 //-- Un nuevo cliente se ha conectado!
 io.on('connection', function(socket){
   console.log('--> Usuario conectado!');
-
+  socket.emit('new message', 'Bienvenido al chat')
+  io.emit('new message', 'Un nuevo escritor se ha conectado')
   //-- Detectar si el usuario se ha desconectado
   socket.on('disconnect', function(){
     console.log('--> Usuario Desconectado');
+    io.emit('new message', 'Un escritor se ha desconectado')
   });
 
-  //-- Detectar si se ha recibido un mensaje del cliente
   socket.on('new_message', msg => {
 
     //-- Notificarlo en la consola del servidor
@@ -39,5 +40,4 @@ io.on('connection', function(socket){
     //-- Emitir un mensaje a todos los clientes conectados
     io.emit('new_message', msg);
   })
-
 });
