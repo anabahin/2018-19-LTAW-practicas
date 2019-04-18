@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 //--Servir la pagina principal
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
-  console.log("Página principal: /")
+  console.log("Página principal2: /")
 });
 
 //-- Servir el cliente javascript
@@ -13,7 +13,6 @@ app.get('/chat-client.js', function(req, res){
   res.sendFile(__dirname + '/chat-client.js');
   console.log("Fichero js solicituado")
 });
-
 
 //-- Lanzar el servidor
 http.listen(3000, function(){
@@ -24,20 +23,20 @@ http.listen(3000, function(){
 //-- Un nuevo cliente se ha conectado!
 io.on('connection', function(socket){
   console.log('--> Usuario conectado!');
-  socket.emit('new message', 'Bienvenido al chat')
-  io.emit('new message', 'Un nuevo escritor se ha conectado')
+
   //-- Detectar si el usuario se ha desconectado
   socket.on('disconnect', function(){
     console.log('--> Usuario Desconectado');
-    io.emit('new message', 'Un escritor se ha desconectado')
   });
 
-  socket.on('new_message', msg => {
+  //-- Detectar si se ha recibido un mensaje del cliente
+   socket.on('new_message', msg => {
 
-    //-- Notificarlo en la consola del servidor
-    console.log("Mensaje recibido: " + msg)
+   //-- Notificarlo en la consola del servidor
+   console.log("Mensaje recibido: " + msg)
 
-    //-- Emitir un mensaje a todos los clientes conectados
-    io.emit('new_message', msg);
-  })
+   //-- Emitir un mensaje a todos los clientes conectados
+   io.emit('new_message', msg);
+ });
+
 });
