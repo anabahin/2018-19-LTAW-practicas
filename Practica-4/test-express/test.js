@@ -58,11 +58,28 @@ io.on('connection', function(socket){
                +'<br>' + '/hello:' + '<br>'+ 'El servidor nos devolverá el saludo'
                +'<br>' + '/date:' + '<br>'+ 'Nos devolverá la fecha'
          socket.emit('new_message', msg);
+
      }else if (msg === '/list') {
        console.log(clientes + "numero de clientes%%%");
         msg = 'Usuarios conectados: ' + clientes
         socket.emit('new_message', msg);
-     }else{
+
+     } else if (msg === '/hello') {
+        msg = '<br>' + 'Buenas soy el servidor...'
+        socket.emit('new_message', msg)
+     } else if (msg === '/date') {
+       console.log("entro en date");
+        var fecha= new Date();
+        msg = 'Fecha: ' + fecha.getDate()
+              + '<br> Dia de la semana: ' + fecha.getDay()
+              + '<br> Mes (0 al 11): ' + fecha.getMonth()
+              + '<br> Año: ' + fecha.getFullYear()
+              + '<br> Hora: ' + fecha.getHours()
+            //  + '<br> Hora UTC: ' + fecha.getUTCHours()
+              + '<br> Minutos: ' + fecha.getMinutes()
+              + '<br> Segundos: ' + fecha.getSeconds();
+        socket.emit('new_message', msg);
+     } else{
        console.log("entro33333");
        io.emit('new_message', msg);
      }
