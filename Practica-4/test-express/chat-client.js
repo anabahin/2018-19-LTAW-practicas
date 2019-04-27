@@ -1,8 +1,9 @@
 function main() {
   console.log("Hola!!!!-------------")
-
+  var person = prompt("Please enter your name");
   //-- Crear el websocket
   var socket = io();
+
 
   //-- Obtener los elementos de interfaz:
 
@@ -17,7 +18,7 @@ function main() {
 
   //cuando se aprieta el enter envia el menasaje
   // Execute a function when the user releases a key on the keyboard
-  msg.addEventListener("keyup", function(event) {
+  msg.addEventListener("keypress", function(event) {
   // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
       // Cancel the default action, if needed
@@ -26,19 +27,26 @@ function main() {
       document.getElementById("send").click();
     }
   });
+
+  socket.emit('persona', person)
   //-- Cuando se aprieta el botón de enviar...
   send.onclick = () => {
 
     //-- Enviar el mensaje, con el evento "new_message"
-    socket.emit('new_message', msg.value);
+    socket.emit('new_message',person + ": " + msg.value);
 
     //-- Lo notificamos en la consola del navegador
     console.log("Mensaje emitido")
     console.log(msg.value);//el mensaje en si
+    msg.value = ""
   }
 
   //-- Cuando se reciba un mensaje del servidor se muestra
   //-- en el párrafo
+  socket.on('bienvenido', wel => {
+    display.innerHTML += wel + '<br>'
+  });
+
   socket.on('new_message', msg => {
     display.innerHTML += msg + '<br>'
   });
