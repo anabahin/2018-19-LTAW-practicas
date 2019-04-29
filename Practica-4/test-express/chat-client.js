@@ -45,6 +45,10 @@ function main() {
   //-- en el párrafo
   socket.on('bienvenido', wel => {
     display.innerHTML += wel + '<br>'
+    display1.innerHTML += '<br>' + person 
+  });
+  socket.on('Abandono', aban => {
+    display.innerHTML += aban + '<br>'
   });
 
   socket.on('new_message', msg => {

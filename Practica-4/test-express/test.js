@@ -28,14 +28,17 @@ io.on('connection', function(socket){
   console.log("ha entrado en el welcome");
   socket.on('persona', person => {
     console.log(person);
-    nombres += person + '\n';
+    nombres += person + ',' + '\n';
     console.log( "todos los usuarios: " + nombres );
     socket.emit('bienvenido',"bienvenido al chat " + person );
     socket.broadcast.emit('bienvenido', "El nuevo usuario llamado " + person + " se ha unido al chat")
+
   //-- Detectar si el usuario se ha desconectado
   socket.on('disconnect', function(){
     console.log('--> Usuario Desconectado');
       clientes = clientes - 1;
+      socket.broadcast.emit('Abandono', "El  usuario  " + person + "  ha abandonado el chat")
+      console.log(person);
 
   });
 });
@@ -71,7 +74,7 @@ io.on('connection', function(socket){
 
      }else if (msg_new === ' /list') {
        console.log(clientes + "numero de clientes%%%");
-        msg = 'Usuarios conectados: ' + clientes
+        msg = 'Usuarios conectados: ' + clientes + '<br>' +  nombres
         socket.emit('new_message', msg);
 
      } else if (msg_new === ' /hello') {
