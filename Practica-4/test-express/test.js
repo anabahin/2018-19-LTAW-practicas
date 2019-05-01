@@ -29,6 +29,7 @@ io.on('connection', function(socket){
   socket.on('persona', person => {
     console.log(person);
     nombres += person + ',' + '\n';
+    io.emit('usuarios', nombres)
     console.log( "todos los usuarios: " + nombres );
     socket.emit('bienvenido',"bienvenido al chat " + person );
     socket.broadcast.emit('bienvenido', "El nuevo usuario llamado " + person + " se ha unido al chat")
@@ -37,6 +38,7 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('--> Usuario Desconectado');
       clientes = clientes - 1;
+      nombres -= person + ',' + '\n';
       socket.broadcast.emit('Abandono', "El  usuario  " + person + "  ha abandonado el chat")
       console.log(person);
 

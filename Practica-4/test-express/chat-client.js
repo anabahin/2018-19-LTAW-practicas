@@ -1,6 +1,7 @@
 function main() {
   console.log("Hola!!!!-------------")
   var person = prompt("Please enter your name");
+
   //-- Crear el websocket
   var socket = io();
 
@@ -16,6 +17,8 @@ function main() {
   //-- Caja con el mensaje a enviar
   var msg = document.getElementById("msg")
 
+  var usuarios = document.getElementById('user')
+
   //cuando se aprieta el enter envia el menasaje
   // Execute a function when the user releases a key on the keyboard
   msg.addEventListener("keypress", function(event) {
@@ -29,6 +32,7 @@ function main() {
   });
 
   socket.emit('persona', person)
+
   //-- Cuando se aprieta el botón de enviar...
   send.onclick = () => {
 
@@ -43,9 +47,13 @@ function main() {
 
   //-- Cuando se reciba un mensaje del servidor se muestra
   //-- en el párrafo
+  socket.on('usuarios', usuar => {
+    usuarios.innerHTML = usuar
+    console.log(usuar)
+  });
+
   socket.on('bienvenido', wel => {
     display.innerHTML += wel + '<br>'
-    display1.innerHTML += '<br>' + person 
   });
   socket.on('Abandono', aban => {
     display.innerHTML += aban + '<br>'
