@@ -25,6 +25,11 @@ electron.app.on('ready', ()=>{
   //-- Cargar la interfaz gráfica, que se encuentra en el
   //-- fichero index.html
   win.loadFile('index.html')
+  win.on('closed', () => {
+		// por último escuchamos el evento `closed` de la ventana para limpar la variable `window`
+		// de esta forma permitimos matar la ventana sin matar al aplicación
+		win = null
+	});
 })
 
 
