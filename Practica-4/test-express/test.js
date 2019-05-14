@@ -16,7 +16,7 @@ app.get('/chat-client.js', function(req, res){
 });
 
 //-- Lanzar el servidor
-http.listen(3000, function(){
+http.listen(4000, function(){
   console.log('listening on *:3000');
 });
 
@@ -87,7 +87,7 @@ io.on('connection', function(socket){
         var fecha= new Date();
         msg = 'Fecha: ' + fecha.getDate()
               + '<br> Dia de la semana: ' + fecha.getDay()
-              + '<br> Mes (0 al 11): ' + fecha.getMonth()
+              + '<br> Mes : ' + (fecha.getMonth() + 1)
               + '<br> Año: ' + fecha.getFullYear()
               + '<br> Hora: ' + fecha.getHours()
             //  + '<br> Hora UTC: ' + fecha.getUTCHours()
