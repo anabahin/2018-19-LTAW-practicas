@@ -9,6 +9,9 @@ console.log("Arrancando servidor...")
 http.createServer((req, res) => {
   console.log("---> Peticion recibida")
   console.log("Recurso solicitado (URL): " + req.url)
+
+  if (req.url.indexOf("favicon.ico")>0){return;}
+
   var q = url.parse(req.url, true);
   console.log("URL parseada: ")
   console.log("Host: " + q.host)
@@ -36,6 +39,7 @@ http.createServer((req, res) => {
   console.log("Tipo: " + tipo)
 
   fs.readFile(filename, function(err, data) {
+    console.log(err);
     if (err) {
       res.writeHead(404, {'Content-Type': 'text/html'});
       return res.end("404 Not Found");
